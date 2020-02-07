@@ -11,6 +11,19 @@
 	<div id="app">
 		<h1>{{titulo}}</h1>
 
+		<ul>
+			<li v-for="producto of productos">
+				<div v-on:click.self="eliminar">{{producto.nombre}} - {{producto.preu}} € X <input type="number" v-model.number="producto.cantidad" v-on:click="sumarproducto"> uds. = {{producto.total_producto}} € </div>
+		</ul>
+		<h4 >Total: {{sumarProductos}}</h4>
+		<div>
+			<h3  style="float: left; margin: 0px; margin-right: 5px">Producte: </h3>
+			<input type="text" v-model="nombre"  style="float: left;">
+			<h3  style="float: left; margin: 0px;  margin-right: 5px">Preu: </h3>
+			<input type="number" v-model="preu"  style="float: left;"> € 
+			<button @click="agregarProducto">Afegir</button>
+		</div>
+
 	</div>
 	<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue.js"></script>
